@@ -1,10 +1,11 @@
 {
+  "main": "application/app.js",
   "dependencies": {
     "electron": "^39.2.4",
     "path": "^0.12.7"
   },
   "scripts": {
-    "start": "electron ./",
-    "preinstall": "set PATH=C:\\Users\\6041464\\node;%PATH%"
+    "setup": "set PATH=C:/Users/6041464/node;%PATH% && npm install",
+    "start": "set PATH=C:/Users/6041464/node;%PATH% && electron ."
   }
 }

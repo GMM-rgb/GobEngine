@@ -7,6 +7,8 @@ electron.app.whenReady().then(() => {
     let ApplicationWindow = new electron.BrowserWindow({
         fullscreenable: true,
         maximizable: true,
-        title: "GobEngine"
+        title: "GobEngine",
+        innerHeight: 500,
+        innerWidth: 800
     });
 });
