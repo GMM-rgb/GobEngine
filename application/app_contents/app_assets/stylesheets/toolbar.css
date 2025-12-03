@@ -1,0 +1,21 @@
+.application-toolbar {
+    display: flex;
+    flex-direction: row !important;
+    background-color: lightgreen;
+    border-bottom: 2px solid lime;
+    padding: 5px;
+    gap: 8px;
+}
+
+.toolbar-selection {
+    cursor: pointer;
+    padding: 4.5px;
+    padding-inline: 10px;
+    border: 2px solid limegreen;
+    border-radius: 1cm;
+    font-style: italic;
+    font-weight: bold;
+    flex-shrink: 1 !important;
+    transition: all 0.3s ease-out;
+    margin-left: 0;
+}

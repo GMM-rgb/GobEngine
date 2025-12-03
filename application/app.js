@@ -1,22 +1,23 @@
 const path = require("path");
 const electron = require("electron");
 
-const BaseApplicationIndex = path.join(__dirname, "app_contents");
-const ApplicationIconFile = path.join(BaseApplicationIndex, "app_assets", "images", "");
-const ApplicationIndexFile = path.join(BaseApplicationIndex, "index.html");
+let BaseApplicationIndex = path.join(__dirname, "app_contents");
+let ApplicationIndexFile = path.join(BaseApplicationIndex, "index.html");
+let ApplicationIconFile = path.join(BaseApplicationIndex, "app_assets", "images", "icons", "favicon_main.svg");
 
 electron.app.whenReady().then(() => {
     let ApplicationWindow = new electron.BrowserWindow({
+        title: "GobEngine",
+        icon: ApplicationIconFile,
         fullscreenable: true,
         maximizable: true,
-        title: "GobEngine",
         innerHeight: 500,
         innerWidth: 800,
         webPreferences: {
             nodeIntegration: true,
-            contextIsolation: false
+            contextIsolation: true
         },
-        icon: ""
+        autoHideMenuBar: true,
     });
     ApplicationWindow.loadFile(ApplicationIndexFile);
 });
