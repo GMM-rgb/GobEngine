@@ -19,14 +19,26 @@ async function combinePaths(include_current_dir, ...paths) {
 }
 
 /** 
- * @param {...string} paths
+ * 
+ * @param {string} paths
+ * @param {...string} pathOrigin
 */
-function createNewPathInstance(name) {
-    if (!paths || !fs) return;
+function NewProjectPathInstance(dirName, ...pathOrigin) {
+    if (!dirName || !fs) return;
 
-    fs.mkdirSync();
+    let CombinedOrigin = path.join(...pathOrigin);
+
+    (() => {
+        if (dirName !== null && CombinedOrigin !== null) {
+            if ((typeof dirName === "string") && (typeof CombinedOrigin === "string")) {
+                fs.mkdirSync(path.join(CombinedOrigin, dirName));
+            }
+        }
+    });
 }
 
 module.exports = {
     combinePaths: combinePaths,
+    // Project File Manager Functions
+    CreateNewFolderInstance: NewProjectPathInstance,
 };

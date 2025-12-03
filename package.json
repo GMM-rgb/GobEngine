@@ -3,7 +3,8 @@
   "dependencies": {
     "electron": "~39.2.4",
     "fs": "^0.0.1-security",
-    "path": "^0.12.7"
+    "path": "^0.12.7",
+    "socket.io": "^4.8.1"
   },
   "scripts": {
     "setup": "set PATH=C:/Users/6041464/node;%PATH% && npm install",
