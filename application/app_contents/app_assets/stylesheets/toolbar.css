@@ -6,7 +6,7 @@
     max-height: calc(max-content / 2);
     transition: all 0.3s ease-out;
     background-color: lightgreen;
-    border-bottom: 2px solid lime;
+    border-bottom: 3px solid lime;
     padding: 5px;
     gap: 8px;
 }

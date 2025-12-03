@@ -10,12 +10,21 @@ const fs = require("fs");
  */
 async function combinePaths(include_current_dir, ...paths) {
     let CombinedResult = "";
-    if (!paths) return null;
+    if (!paths) return ".";
     if (include_current_dir) {
         paths.unshift(__dirname);
     }
     CombinedResult = path.join(...paths);
-    return CombinedResult !== null ? CombinedResult : null;
+    return CombinedResult !== null ? CombinedResult : ".";
+}
+
+/** 
+ * @param {...string} paths
+*/
+function createNewPathInstance(name) {
+    if (!paths || !fs) return;
+
+    fs.mkdirSync();
 }
 
 module.exports = {
