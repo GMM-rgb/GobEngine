@@ -19,7 +19,7 @@ async function combinePaths(include_current_dir, ...paths) {
 }
 
 /** 
- * 
+ * Creates a new folder for the users project
  * @param {string} paths
  * @param {...string} pathOrigin
 */
