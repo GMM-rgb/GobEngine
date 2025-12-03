@@ -1,4 +1,5 @@
 const toolbar = document.querySelector(".application-toolbar");
+const toolbarWrapper = document.getElementById("ToolbarWrapper");
 
 /**
  * 

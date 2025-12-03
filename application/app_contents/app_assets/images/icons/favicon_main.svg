@@ -1,10 +1,10 @@
-<?xml xmlns="http://www.w3.org/1999/xml" version="1.0">
-<svg width="400" height="400" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+<svg width="1080" height="1080" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
   <defs>
     <mask id="inner-layer-ring-cutout">
       <rect x="0" y="0" width="400" height="400" fill="white" />
       <circle cx="200" cy="200" r="115" fill="black" stroke="none"></circle>
-      <circle opacity="0.85" cx="200" cy="200" r="85" fill="white" stroke="black" stroke-width="20" stroke-dasharray="45" stroke-linejoin="round" shape-rendering="precise"></circle>
+      <circle opacity="1" cx="200" cy="200" r="85" fill="white" stroke="black" stroke-opacity="0.5" stroke-width="20" stroke-dasharray="45" stroke-linejoin="round"></circle>
+      <circle cx="200" cy="200" r="55" fill="black" stroke="white" stroke-width="10" stroke-opacity="0.5"></circle>
     </mask>
   </defs>
   <!-- SVG Icon -->
