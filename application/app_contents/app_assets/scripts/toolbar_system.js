@@ -12,19 +12,19 @@ async function openSelectionMenu(selection_button, status) {
 
     TargetSelectionsMenus.forEach((supposed_target) => {
         if (
-            supposed_target instanceof HTMLElement &&
+            supposed_target instanceof HTMLDivElement &&
             selection_button.getAttribute("id") &&
             supposed_target.getAttribute("name") &&
             selection_button.getAttribute("id").includes(supposed_target.getAttribute("name"))
         ) {
-            if (!status) {
+            if (status === false) {
                 supposed_target.classList.remove("open");
                 console.log("closed");
-            } else if (status) {
+            } else if (status === true) {
                 supposed_target.classList.add("open");
                 console.log("opened");
             }
-        } else return null;
+        } else return console.log("Error");
     });
 
     return (selection_button, status);

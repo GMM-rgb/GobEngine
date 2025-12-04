@@ -115,6 +115,8 @@
     box-shadow: inset 0 0 5px rgba(0,0,0,0.275);
     font-weight: bold;
     transition: all 0.3s ease-out;
+    text-align: center;
+    padding-inline: 8.5px;
 }
 
 .toolbar-selections-menu>button:hover {
@@ -124,5 +126,5 @@
 
 #FileSelectionsMenu.open {
     display: flex !important;
-    animation: SelectionMenuDropDown 0.75s ease forwards;
+    animation: SelectionMenuDropDown 0.475s ease forwards;
 }
