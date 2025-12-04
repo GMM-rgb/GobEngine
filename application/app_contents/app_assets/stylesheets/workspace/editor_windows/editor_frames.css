@@ -1,7 +1,7 @@
 .bottom-editor-frame {
     display: flex;
     flex-grow: 0 !important;
-    flex: 1 1 auto;
+    flex: 0 1 auto;
     position: relative;
     max-height: initial;
     height: 100%;
@@ -28,7 +28,7 @@
     min-height: 10%;
     max-width: 800px;
     min-width: 50px;
-    width: 500px;
+    width: 250px;
     height: 100%;
     background: white;
     border: 3px solid #ccc;
@@ -37,11 +37,11 @@
 }
 
 .inline-frame.left {
-    transform-origin: left center;
+    transform-origin: left top;
 }
 
 .inline-frame.right {
-    transform-origin: right center;
+    transform-origin: right top;
 }
 
 /* Editor Frame Contents */

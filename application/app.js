@@ -11,7 +11,7 @@ const FileManager = require(path.join(__dirname, "application_modules", "file_ma
 
 const app = express();
 const server = http.createServer(app);
-// Setup the apps communications with the system
+// Setup the game engines communications with the system
 const io = new socket.Server(server, {
     cors: {
         origin: "http://localhost:72",
