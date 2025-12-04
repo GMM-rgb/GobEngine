@@ -1,4 +1,4 @@
-const toolbar = document.querySelector(".application-toolbar");
+const EditorToolbar = document.querySelector(".application-toolbar");
 const toolbarWrapper = document.getElementById("ToolbarWrapper");
 /**
  * 
@@ -8,7 +8,7 @@ const toolbarWrapper = document.getElementById("ToolbarWrapper");
  */
 async function openSelectionMenu(selection_button, status) {
     if (selection_button === null || status === null && (typeof status === "boolean" && !(selection_button instanceof HTMLButtonElement))) return null;
-    let TargetSelectionsMenus = document.querySelectorAll(".toolbar-selections-menu");
+    let TargetSelectionsMenus = EditorToolbar.querySelectorAll(".selections-menu-row .toolbar-selections-menu");
 
     TargetSelectionsMenus.forEach((supposed_target) => {
         if (
@@ -24,9 +24,6 @@ async function openSelectionMenu(selection_button, status) {
                 supposed_target.classList.add("open");
                 console.log("opened");
             }
-        } else {
-            console.log("Slow down!");
-            return null;
         }
     });
 

@@ -39,8 +39,8 @@ electron.app.whenReady().then(() => {
         maximizable: true,
         width: 1000,  // Fixed property name
         height: 800, // Fixed property name
-        minWidth: 450,
-        minHeight: 400,
+        minWidth: 700,
+        minHeight: 500,
         autoHideMenuBar: true,
         webPreferences: {
             nodeIntegration: true,

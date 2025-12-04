@@ -1,0 +1,37 @@
+.bottom-editor-frame {
+    display: flex;
+    width: auto;
+    height: 100%;
+    flex: 1 1 auto;
+    flex-grow: 1 !important;
+    backdrop-filter: blur(1px);
+    background: rgba(255, 255, 255, 0.5);
+    border: 3px solid #ccc;
+}
+
+.inline-editor-frame {
+    display: flex;
+    flex-direction: row;
+}
+.inline-frame {
+    display: flex;
+    max-width: 50%;
+    min-width: 18%;
+    width: 25%;
+    height: auto;
+    background: white;
+    border: 3px solid #ccc;
+    border-block: none;
+}
+.inline-frame.left {
+    transform-origin: left center;
+}
+.inline-frame.right {
+    transform-origin: right center;
+}
+
+/* Editor Frame Contents */
+.properties-header {
+    text-align: center;
+    text-overflow: ellipsis;
+}

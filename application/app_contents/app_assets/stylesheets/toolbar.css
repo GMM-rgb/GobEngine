@@ -1,20 +1,25 @@
 @keyframes SelectionMenuDropDown {
     0% {
+        opacity: 0.125;
         border-radius: 8px;
+        border-top-color: lime;
         border-top: inherit;
         transform: translateY(-200px);
     }
     25%, 110% {
+        opacity: 0.5;
         transform: translateY(-50px);
         gap: 14px;
     }
     85% {
+        opacity: 0.75;
         border-radius: 8px;
         border-top: inherit;
         transform: translateY(7.5px);
         gap: 8px;
     }
     100%, 25% {
+        opacity: 1;
         border-radius: 0 0 8px 8px;
         border-top: 2px solid transparent;
         transform: translateY(0);
@@ -26,14 +31,16 @@
     display: flex;
     flex-wrap: nowrap;
     flex-flow: nowrap;
-    flex-direction: row !important;
-    max-height: calc(max-content / 2);
+    flex-direction: column !important;
+    justify-content: center;
     transition: all auto linear;
     box-shadow: 0 2px 25px rgba(0,0,0,0.275);
     background-color: lightgreen;
     border-bottom: 3px solid lime;
+    box-sizing: border-box;
     z-index: 9999 !important;
     padding: 5px;
+    padding-block-start: 7.5px;
     gap: 8px;
 }
 
@@ -45,7 +52,7 @@
     flex-shrink: 1 !important;
     transition: all 0.4s ease-out;
     z-index: 9999;
-    gap: 8px;
+    gap: 4px;
 }
 
 .toolbar-selection {
@@ -53,46 +60,51 @@
     padding: 4.5px;
     padding-inline: 10px;
     border: 2px solid limegreen;
-    border-radius: 1cm;
+    border-radius: 0.25cm;
     font-style: italic;
     font-weight: bold;
     flex-shrink: 1 !important;
     flex-grow: auto !important;
-    flex: 0 1 auto !important;
+    flex: 1 0 auto !important;
     transition: all 0.3s ease-out;
     justify-content: center;
     align-items: center;
-    margin-left: 0 !important;
-    max-width: min-content !important;
+    max-width: min-content;
     min-width: 0;
     max-height: 40px;
+    margin-left: 0 !important;
     -webkit-user-select: none !important;
     user-select: none !important;
 }
 
 .toolbar-selection:has(img) {
-    max-width: 17.5% !important;
+    max-width: 50px !important;
+    margin-inline-end: 20px !important;
+    flex-grow: 0 !important;
 }
 
 .toolbar-selection>img {
     flex: 0 0 0 !important;
     flex-shrink: 1 !important;
-    margin-top: 2.5%;
+    margin-top: 0.5px;
     width: calc(100vw / 40);
-    height: 95%;
+    height: min-content;
     min-width: 25% !important;
     min-height: 25% !important;
     max-width: 100% !important;
+    max-height: 95% !important;
     transition: all auto linear;
     transform-origin: center;
-    transform: scale(1.5);
+    transform: scale(1.25);
+    justify-self: center;
+    align-self: center;
 }
 
 .toolbar-selections-menu {
     display: none;
     position: absolute;
     padding: 5px;
-    margin-top: 7.5px;
+    margin-top: 0;
     max-height: 125px;
     flex-direction: column;
     background-color: lightgreen;
