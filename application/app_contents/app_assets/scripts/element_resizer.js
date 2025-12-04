@@ -24,11 +24,22 @@ async function combineElementHeightSizes(...elements) {
         return null;
     }
     //
-    return heightTotal;
+    if (heightTotal === null) return null; else {
+        return heightTotal;
+    }
+}
+
+/**
+ * 
+ * @param {number} newHeight 
+ */
+function updateBottomEditorWindowHeight(newHeight) {
+
 }
 
 window.addEventListener("resize", (e) => {
     e.stopPropagation();
     //
-    let ElementsStackedHeight = Math.floor(combineElementHeightSizes(AppToolbar, EditorCurrentTabsBar, InlineEditorWindows));
+    let ElementsStackedHeight = combineElementHeightSizes(AppToolbar, EditorCurrentTabsBar, InlineEditorWindows);
+    console.log(ElementsStackedHeight);
 }, { passive: true });
