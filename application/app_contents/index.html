@@ -13,7 +13,7 @@
             margin: 0 !important;
             font-family: Arial, Helvetica, sans-serif !important;
             overflow: hidden !important;
-            background: lightgray;
+            background: lightseagreen;
         }
     </style>
     <body>
@@ -46,7 +46,7 @@
                 </div>
             </div>
         </div>
-        <div id="RenderingArea" style="width: 100%; height: calc(100vh - 30px);">
+        <div id="RenderingArea" style="width: 100%; height: calc(100vw - 30px);">
             <div class="taskbar-current-tabs">
                 <ol>
                     <button class="workspace-editor-tab"></button>
@@ -55,7 +55,9 @@
             <div class="inline-editor-frame">
                 <!-- Inline frame left -->
                 <div class="inline-frame left">
-
+                    <span>
+                        <h4 class="header explorer">Explorer</h4>
+                    </span>
                 </div>
 
                 <!-- Rendering Canvas --><canvas id="RenderingCanvas" virtualkeyboardpolicy="false"></canvas>
@@ -63,12 +65,14 @@
                 <!-- Inline frame right -->
                 <div class="inline-frame right">
                     <span>
-                        <h4 class="properties-header">Properties</h4>
+                        <h4 class="header properties">Properties</h4>
                     </span>
                 </div>
             </div>
             <div class="bottom-editor-frame">
+                <section>
 
+                </section>
             </div>
         </div>
     </body>
