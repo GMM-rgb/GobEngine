@@ -1,7 +1,7 @@
+const picocolors = require("picocolors");
 const Module = require("module");
 const path = require("path");
 const fs = require("fs");
-
 /**
  * Combine Paths Function to form a single path from multiple segments
  * @typedef {function(...string): string} CombinePathsFunction
@@ -17,19 +17,19 @@ async function combinePaths(include_current_dir, ...paths) {
     CombinedResult = path.join(...paths);
     return CombinedResult !== null ? CombinedResult : ".";
 }
-
 /** 
  * Creates a new folder for the users project
  * @param {string} paths
- * @param {...string} pathOrigin
+ * @param {...string} PathOrigin
 */
-function NewProjectPathInstance(dirName, ...pathOrigin) {
-    if (!dirName || !fs) return;
-    let CombinedOrigin = path.join(...pathOrigin);
+function NewProjectPathInstance(NewDirName, ...PathOrigin) {
+    if (!NewDirName || !fs) return;
+    let CombinedOrigin = path.join(...PathOrigin);
     (() => {
-        if (dirName !== null && CombinedOrigin !== null) {
-            if ((typeof dirName === "string") && (typeof CombinedOrigin === "string")) {
-                fs.mkdirSync(path.join(CombinedOrigin, dirName));
+        if (NewDirName !== null && CombinedOrigin !== null) {
+            if ((typeof NewDirName === "string") && (typeof CombinedOrigin === "string")) {
+                fs.mkdirSync(path.join(CombinedOrigin, NewDirName));
+                fs.readdirSync(path.join(CombinedOrigin, NewDirName));
             }
         }
     });

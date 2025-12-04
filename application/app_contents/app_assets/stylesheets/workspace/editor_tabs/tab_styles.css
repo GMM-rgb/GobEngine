@@ -10,10 +10,14 @@
     border-inline: none;
     background: whitesmoke;
     box-sizing: border-box;
+    min-height: min-content;
 }
 
 .workspace-editor-tab {
+    cursor: pointer;
     background: lightgray;
     border: 2px solid limegreen;
     border-radius: 0.125cm;
+    padding: 10px;
+    min-width: 72.5px;
 }

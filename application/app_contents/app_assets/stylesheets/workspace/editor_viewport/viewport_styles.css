@@ -6,3 +6,9 @@
     width: auto;
     height: auto;
 }
+
+#RenderingArea {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}

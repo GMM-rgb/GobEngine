@@ -1,31 +1,44 @@
 .bottom-editor-frame {
     display: flex;
-    width: auto;
-    height: 100%;
+    flex-grow: 0 !important;
     flex: 1 1 auto;
-    flex-grow: 1 !important;
+    position: relative;
+    max-height: initial;
+    height: 100%;
     backdrop-filter: blur(1px);
     background: rgba(255, 255, 255, 0.5);
     border: 3px solid #ccc;
+    box-sizing: border-box;
+    transform-origin: left bottom;
 }
 
 .inline-editor-frame {
     display: flex;
     flex-direction: row;
+    box-sizing: border-box;
 }
+
 .inline-frame {
     display: flex;
-    max-width: 50%;
+    flex-direction: column;
+    flex-basis: content;
+    flex-flow: auto;
+    flex: 1 1 auto;
+    min-height: 10%;
+    max-width: 250px;
     min-width: 18%;
     width: 25%;
-    height: auto;
+    height: 100%;
     background: white;
     border: 3px solid #ccc;
     border-block: none;
+    box-sizing: border-box;
 }
+
 .inline-frame.left {
     transform-origin: left center;
 }
+
 .inline-frame.right {
     transform-origin: right center;
 }
@@ -34,4 +47,7 @@
 .properties-header {
     text-align: center;
     text-overflow: ellipsis;
+    text-decoration: underline;
+    -webkit-user-select: none !important;
+    user-select: none !important;
 }
