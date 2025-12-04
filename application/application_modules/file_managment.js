@@ -25,9 +25,7 @@ async function combinePaths(include_current_dir, ...paths) {
 */
 function NewProjectPathInstance(dirName, ...pathOrigin) {
     if (!dirName || !fs) return;
-
     let CombinedOrigin = path.join(...pathOrigin);
-
     (() => {
         if (dirName !== null && CombinedOrigin !== null) {
             if ((typeof dirName === "string") && (typeof CombinedOrigin === "string")) {

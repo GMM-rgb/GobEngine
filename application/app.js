@@ -1,11 +1,34 @@
 const path = require("path");
+const http = require("http");
+const express = require("express");
+const socket = require("socket.io");
 const electron = require("electron");
+// Constant variables
+const PORT = 72;
 
 const FileManager = require(path.join(__dirname, "application_modules", "file_managment.js"));
+
+const app = express();
+const server = http.createServer(app);
+// Setup the apps communications with the system
+const io = new socket.Server(server, {
+    cors: {
+        origin: "http://localhost:72",
+        methods: ["GET", "POST"]
+    }
+});
 
 let BaseApplicationIndex = path.join(__dirname, "app_contents");
 let ApplicationIndexFile = path.join(BaseApplicationIndex, "index.html");
 let ApplicationIconFile = path.join(BaseApplicationIndex, "app_assets", "images", "icons", "favicon_main.png");
+
+// Serve all static files from app_contents directory
+app.use(express.static(BaseApplicationIndex));
+
+// Serve index.html at root
+app.get('/', (req, res) => {
+    res.sendFile(ApplicationIndexFile);
+});
 
 electron.app.whenReady().then(() => {
     let ApplicationWindow = new electron.BrowserWindow({
@@ -13,21 +36,20 @@ electron.app.whenReady().then(() => {
         icon: ApplicationIconFile,
         fullscreenable: true,
         maximizable: true,
-        innerHeight: 500,
-        innerWidth: 800,
+        width: 800,  // Fixed property name
+        height: 500, // Fixed property name
         minWidth: 400,
         minHeight: 300,
         autoHideMenuBar: true,
-        roundedCorners: true,
-        useContentSize: true,
         webPreferences: {
-            media: true,
-            enablePreferredSizeMode: true,
             nodeIntegration: true,
             contextIsolation: false,
-            partition: "gobengine_app_partition",
         },
     });
-    ApplicationWindow.loadFile(ApplicationIndexFile);
+    ApplicationWindow.loadURL("http://localhost:72");
     ApplicationWindow.setIcon(ApplicationIconFile);
+});
+
+server.listen(PORT, () => {
+    console.log(`Server listening on *:${PORT}`);
 });

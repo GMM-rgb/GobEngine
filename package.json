@@ -2,7 +2,9 @@
   "main": "application/app.js",
   "dependencies": {
     "electron": "~39.2.4",
+    "express": "^5.2.1",
     "fs": "^0.0.1-security",
+    "http": "^0.0.1-security",
     "path": "^0.12.7",
     "socket.io": "^4.8.1"
   },
