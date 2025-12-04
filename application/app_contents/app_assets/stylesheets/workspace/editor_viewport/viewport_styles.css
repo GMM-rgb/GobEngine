@@ -10,7 +10,6 @@
 
 #RenderingArea {
     display: flex;
-    flex-shrink: 1 !important;
     flex-direction: column;
     gap: 0;
 }
