@@ -23,14 +23,25 @@ async function combinePaths(include_current_dir, ...paths) {
  * @param {...string} PathOrigin
 */
 function NewProjectPathInstance(NewDirName, ...PathOrigin) {
-    if (!NewDirName || !fs) return;
-    let CombinedOrigin = path.join(...PathOrigin);
+    if (!NewDirName || !PathOrigin || !fs) return;
+    const CombinedOrigin = path.join(...PathOrigin);
     (() => {
         if (NewDirName !== null && CombinedOrigin !== null) {
             if ((typeof NewDirName === "string") && (typeof CombinedOrigin === "string")) {
                 fs.mkdirSync(path.join(CombinedOrigin, NewDirName));
                 fs.readdirSync(path.join(CombinedOrigin, NewDirName));
             }
+        }
+    });
+}
+
+function RemoveFolderPath(DirToRemove, ...PathOrigin) {
+    if (!DirToRemove || !PathOrigin || !fs) return;
+    if (typeof DirToRemove !== "string" || typeof PathOrigin !== "string") return;
+    const IndicatedPath = path.join(...PathOrigin, DirToRemove);
+    (() => {
+        if (fs.existsSync(IndicatedPath)) {
+            fs.rmdirSync(IndicatedPath);
         }
     });
 }

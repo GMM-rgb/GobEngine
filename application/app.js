@@ -54,5 +54,5 @@ electron.app.whenReady().then(() => {
 });
 
 server.listen(PORT, () => {
-    console.log(`Server listening on *:${PORT}`);
+    console.log(picocolors.green(`Built-in Server listening on localhost?*:${PORT}`));
 });

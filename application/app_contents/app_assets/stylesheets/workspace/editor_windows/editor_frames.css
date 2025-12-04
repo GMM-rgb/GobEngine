@@ -1,6 +1,6 @@
 .bottom-editor-frame {
     display: flex;
-    position: relative;
+    position: sticky;
     flex: 1 1 auto;
     flex-shrink: 1 !important;
     flex-grow: 0 !important;
@@ -9,7 +9,7 @@
     border: 3px solid #ccc;
     box-sizing: border-box;
     transform-origin: left bottom;
-    height: max-content;
+    height: calc(100% / 30px);
     width: 100%;
     /* min-height: 275px !important; */
     min-height: 25px !important;
@@ -71,7 +71,7 @@
     border-radius: 5px;
     margin-block-end: 5px;
     margin-inline: 5px;
-    width: max-content;
+    width: auto !important;
     height: 100% !important;
 }
 
