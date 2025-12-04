@@ -17,7 +17,7 @@
             <div class="toolbar-wrapper" id="ToolbarWrapper">
                 <!-- Left -->
                 <div class="toolbar-section" id="ToolbarSectionLeft">
-                    <button class="toolbar-selection" id="GobEngineSelections">GobEngine</button>
+                    <button class="toolbar-selection app" id="GobEngineSelections"><img src="app_assets/images/icons/favicon_main.svg"></button>
                     <button class="toolbar-selection" id="FileSelections">File</button>
                     <button class="toolbar-selection" id="EditSelections">Edit</button>
                     <button class="toolbar-selection" id="ViewSelections">View</button>
@@ -27,7 +27,8 @@
 
                 </div>
                 <!-- Selection Options Menus -->
-                <div class="toolbar-selections-menu" id="FileSelectionsMenu">
+                <!-- File Selection Options -->
+                <div class="toolbar-selections-menu" id="FileSelectionsMenu" name="File">
                     <button class="toolbar-selection-menu-option" id="NewFileOption">New File</button>
                     <button class="toolbar-selection-menu-option" id="OpenFileOption">Open File</button>
                     <button class="toolbar-selection-menu-option" id="SaveFileOption">Save File</button>
@@ -43,11 +44,11 @@
             <canvas id="RenderingCanvas" virtualkeyboardpolicy="false" style="width: 100%; height: 100%;"></canvas>
         </div>
     </body>
-    <script async type="module" src="app_assets/scripts/toolbar_system.js"></script>
-    <script async type="text/javascript" src="app_assets/scripts/modules/toolbar_system.js" defer></script>
-    <script>
-
-        
+    <script src="/socket.io/socket.io.js"></script>
+    <script type="text/javascript" src="app_assets/scripts/modules/toolbar_system.js"></script>
+    <script async>
+        const socket = io("http://localhost:72"); // connect to the app backend
+        // 
         const FileSelectionsMenu = document.getElementById("FileSelectionsMenu");
         // Toolbar Selection Buttons
         const GobEngineSelectionsButton = document.querySelector("#ToolbarSectionLeft .toolbar-selection:nth-child(1)");
@@ -55,16 +56,48 @@
         const EditButton = document.querySelector("#ToolbarSectionLeft .toolbar-selection:nth-child(3)");
         const ViewButton = document.querySelector("#ToolbarSectionLeft .toolbar-selection:nth-child(4)");
         
+        /**
+         * 
+         * @param {HTMLButtonElement} element
+         * @param {boolean} bool
+        */
+        async function linkOpenSelectionFunction(element, bool) {
+            if (!element || !bool) return;
+            if (window.openSelectionMenu !== null) {
+                window.openSelectionMenu(element, bool);
+            }
+        }
+        //
         window.addEventListener("DOMContentLoaded", () => {
+            let HoveringSelectionBtns = {};
             [GobEngineSelectionsButton, FileButton, EditButton, ViewButton].forEach(button => {
+                const ButtonID = button.getAttribute("id");
+                HoveringSelectionBtns[ButtonID];
+                // 
+                button.addEventListener("mouseenter", () => {
+                    HoveringSelectionBtns.ButtonID = true;
+                }, { passive: true });
+                // 
+                button.addEventListener("mouseleave", () => {
+                    HoveringSelectionBtns.ButtonID = false;
+                }, { passive: true });
+                // 
                 button.addEventListener("click", () => {
                     if (button.getAttribute("toggled") === "true") {
                         button.setAttribute("toggled", "false");
-                        window.openSelectionMenu(button, false);
+                        linkOpenSelectionFunction(button, false);
                     } else {
                         button.setAttribute("toggled", "true");
-                        window.openSelectionMenu(button, true);
+                        linkOpenSelectionFunction(button, true);
                     }
+                }, { passive: true });
+                // 
+                document.addEventListener("click", (e) => {
+                    e.stopPropagation();
+                    if (HoveringSelectionBtns.ButtonID === true) return;
+                    button.setAttribute("toggled", "false");
+                    // window.openSelectionMenu(button, false);
+                    linkOpenSelectionFunction(button, false);
                 }, { passive: true });
             });
         }, { once: true, passive: true });

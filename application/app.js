@@ -36,8 +36,8 @@ electron.app.whenReady().then(() => {
         icon: ApplicationIconFile,
         fullscreenable: true,
         maximizable: true,
-        width: 800,  // Fixed property name
-        height: 500, // Fixed property name
+        width: 1000,  // Fixed property name
+        height: 800, // Fixed property name
         minWidth: 400,
         minHeight: 300,
         autoHideMenuBar: true,
