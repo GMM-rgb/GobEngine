@@ -60,6 +60,7 @@
     cursor: pointer;
     padding: 4.5px;
     padding-inline: 10px;
+    background: white;
     border: 2px solid limegreen;
     border-radius: 0.25cm;
     font-weight: bold;
@@ -75,6 +76,10 @@
     margin-left: 0 !important;
     -webkit-user-select: none !important;
     user-select: none !important;
+}
+
+.toolbar-selection:hover {
+    background: lightgray;
 }
 
 .toolbar-selection:has(img) {
