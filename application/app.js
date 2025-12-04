@@ -1,8 +1,9 @@
+const picocolors = require("picocolors");
 const path = require("path");
-const http = require("http");
-const express = require("express");
 const socket = require("socket.io");
+const express = require("express");
 const electron = require("electron");
+const http = require("http");
 // Constant variables
 const PORT = 72;
 
@@ -38,8 +39,8 @@ electron.app.whenReady().then(() => {
         maximizable: true,
         width: 1000,  // Fixed property name
         height: 800, // Fixed property name
-        minWidth: 400,
-        minHeight: 300,
+        minWidth: 450,
+        minHeight: 400,
         autoHideMenuBar: true,
         webPreferences: {
             nodeIntegration: true,
@@ -48,6 +49,8 @@ electron.app.whenReady().then(() => {
     });
     ApplicationWindow.loadURL("http://localhost:72");
     ApplicationWindow.setIcon(ApplicationIconFile);
+}).then(() => {
+    console.log()
 });
 
 server.listen(PORT, () => {

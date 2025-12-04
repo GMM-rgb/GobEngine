@@ -39,10 +39,12 @@
     max-width: min-content !important;
     min-width: 0;
     max-height: 40px;
+    -webkit-user-select: none !important;
+    user-select: none !important;
 }
 
 .toolbar-selection:has(img) {
-    max-width: 25% !important;
+    max-width: 17.5% !important;
 }
 
 .toolbar-selection>img {
@@ -60,13 +62,15 @@
 }
 
 .toolbar-selections-menu {
-    position: absolute;
-    padding: 5px;
     display: none;
+    padding: 5px;
+    position: absolute;
+    margin-top: 8px;
     flex-direction: column;
     background-color: lightgreen;
+    border-top: none !important;
     border: 2px solid lime;
-    border-radius: 8px;
+    border-radius: 0 0 8px 8px;
     z-index: 1000;
     gap: 4px;
 }

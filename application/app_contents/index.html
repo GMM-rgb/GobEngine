@@ -44,9 +44,10 @@
             <canvas id="RenderingCanvas" virtualkeyboardpolicy="false" style="width: 100%; height: 100%;"></canvas>
         </div>
     </body>
+    <!-- JavaScript - Scripts -->
     <script src="/socket.io/socket.io.js"></script>
-    <script type="text/javascript" src="app_assets/scripts/modules/toolbar_system.js"></script>
-    <script async>
+    <script type="text/javascript" async src="app_assets/scripts/toolbar_system.js"></script>
+    <script>
         const socket = io("http://localhost:72"); // connect to the app backend
         // 
         const FileSelectionsMenu = document.getElementById("FileSelectionsMenu");
@@ -55,13 +56,12 @@
         const FileButton = document.querySelector("#ToolbarSectionLeft .toolbar-selection:nth-child(2)");
         const EditButton = document.querySelector("#ToolbarSectionLeft .toolbar-selection:nth-child(3)");
         const ViewButton = document.querySelector("#ToolbarSectionLeft .toolbar-selection:nth-child(4)");
-        
         /**
          * 
          * @param {HTMLButtonElement} element
          * @param {boolean} bool
         */
-        async function linkOpenSelectionFunction(element, bool) {
+        function linkOpenSelectionFunction(element, bool) {
             if (!element || !bool) return;
             if (window.openSelectionMenu !== null) {
                 window.openSelectionMenu(element, bool);
@@ -83,12 +83,12 @@
                 }, { passive: true });
                 // 
                 button.addEventListener("click", () => {
-                    if (button.getAttribute("toggled") === "true") {
-                        button.setAttribute("toggled", "false");
-                        linkOpenSelectionFunction(button, false);
-                    } else {
+                    if (button.getAttribute("toggled") === "false") {
                         button.setAttribute("toggled", "true");
                         linkOpenSelectionFunction(button, true);
+                    } else {
+                        button.setAttribute("toggled", "false");
+                        linkOpenSelectionFunction(button, false);
                     }
                 }, { passive: true });
                 // 
@@ -96,7 +96,6 @@
                     e.stopPropagation();
                     if (HoveringSelectionBtns.ButtonID === true) return;
                     button.setAttribute("toggled", "false");
-                    // window.openSelectionMenu(button, false);
                     linkOpenSelectionFunction(button, false);
                 }, { passive: true });
             });
