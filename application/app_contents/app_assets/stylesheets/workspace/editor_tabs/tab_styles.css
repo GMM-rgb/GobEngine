@@ -18,6 +18,7 @@
     background: lightgray;
     border: 2px solid limegreen;
     border-radius: 0.125cm;
-    padding: 10px;
+    padding: 5px;
     min-width: 72.5px;
+    margin: 0;
 }

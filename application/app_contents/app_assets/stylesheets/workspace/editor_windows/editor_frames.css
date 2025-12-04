@@ -1,8 +1,9 @@
 .bottom-editor-frame {
     display: flex;
     position: relative;
-    flex-grow: 0 !important;
     flex: 1 1 auto;
+    flex-shrink: 1 !important;
+    flex-grow: 0 !important;
     backdrop-filter: blur(1px);
     background: whitesmoke;
     border: 3px solid #ccc;
@@ -13,10 +14,11 @@
     /* min-height: 275px !important; */
     min-height: 25px !important;
     max-height: 375px !important;
-    margin: 0;
+    margin-top: 0 !important;
+    margin: auto;
     bottom: 0;
     right: 0;
-    overflow: hidden;
+    overflow: hidden !important;
 }
 
 .inline-editor-frame {
@@ -37,10 +39,17 @@
     min-width: 50px;
     width: 250px;
     height: 100%;
-    background: white;
+    background: darkgray;
     border: 3px solid #ccc;
     border-block: none;
     box-sizing: border-box;
+}
+
+.inline-frame>hr {
+    width: auto;
+    margin-inline: 5px;
+    border-radius: 1cm;
+    border: 1px solid #ccc;
 }
 
 .inline-frame.left {
@@ -52,13 +61,30 @@
 }
 
 /* Editor Frame Contents */
+.editor-frame-contents {
+    padding: 5px;
+    position: relative;
+    display: inline-flex;
+    flex-shrink: 1 !important;
+    background: white;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    margin-block-end: 5px;
+    margin-inline: 5px;
+    width: max-content;
+    height: 100% !important;
+}
+
+/* Editor Tool Headers */
 .header {
+    color: whitesmoke;
     text-align: center;
     text-wrap-mode: wrap;
     text-wrap-style: balance;
     word-wrap: break-word;
     text-overflow: ellipsis;
     text-decoration: underline;
+    /* disable text selecting / highlighting */
     -webkit-user-select: none !important;
     user-select: none !important;
 }
