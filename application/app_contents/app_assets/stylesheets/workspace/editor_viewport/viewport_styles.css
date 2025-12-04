@@ -1,15 +1,21 @@
 #RenderingCanvas {
-    display: inline-flex;
+    display: flex;
     background: rgb(25, 25, 25);
     flex-shrink: 1 !important;
     flex: 1 1 auto;
     width: auto;
     height: auto;
     max-width: 1200px;
+    max-height: 800px;
+    min-height: 125px;
+    min-width: 225px;
 }
 
 #RenderingArea {
     display: flex;
+    margin: auto !important;
     flex-direction: column;
+    flex-flow: column;
+    flex-shrink: 1;
     gap: 0;
 }

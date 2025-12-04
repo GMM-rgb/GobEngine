@@ -1,21 +1,28 @@
 .bottom-editor-frame {
     display: flex;
-    flex-grow: 0 !important;
-    flex: 0 1 auto;
     position: relative;
-    max-height: initial;
-    height: 100%;
+    flex-grow: 0 !important;
+    flex: 1 1 auto;
     backdrop-filter: blur(1px);
     background: whitesmoke;
     border: 3px solid #ccc;
     box-sizing: border-box;
     transform-origin: left bottom;
+    height: max-content;
+    width: 100%;
+    /* min-height: 275px !important; */
+    min-height: 25px !important;
+    max-height: 375px !important;
+    margin: 0;
+    bottom: 0;
+    right: 0;
+    overflow: hidden;
 }
 
 .inline-editor-frame {
     display: flex;
     flex-direction: row;
-    flex-flow: wrap;
+    flex-flow: nowrap;
     box-sizing: border-box;
 }
 
@@ -47,6 +54,9 @@
 /* Editor Frame Contents */
 .header {
     text-align: center;
+    text-wrap-mode: wrap;
+    text-wrap-style: balance;
+    word-wrap: break-word;
     text-overflow: ellipsis;
     text-decoration: underline;
     -webkit-user-select: none !important;
