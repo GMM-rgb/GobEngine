@@ -56,12 +56,12 @@
 }
 
 .toolbar-selection {
+    color: gray;
     cursor: pointer;
     padding: 4.5px;
     padding-inline: 10px;
     border: 2px solid limegreen;
     border-radius: 0.25cm;
-    font-style: italic;
     font-weight: bold;
     flex-shrink: 1 !important;
     flex-grow: auto !important;
