@@ -24,7 +24,10 @@ async function openSelectionMenu(selection_button, status) {
                 supposed_target.classList.add("open");
                 console.log("opened");
             }
-        } else return console.log("Error");
+        } else {
+            console.log("Slow down!");
+            return null;
+        }
     });
 
     return (selection_button, status);
