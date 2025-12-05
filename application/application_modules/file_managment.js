@@ -1,5 +1,4 @@
 const picocolors = require("picocolors");
-const Module = require("module");
 const path = require("path");
 const fs = require("fs");
 /**
@@ -18,7 +17,7 @@ async function combinePaths(include_current_dir, ...paths) {
     return CombinedResult !== null ? CombinedResult : ".";
 }
 /** 
- * Creates a new folder for the users project
+ * Creates a new folder in the users project
  * @param {string} paths
  * @param {...string} PathOrigin
 */
@@ -34,7 +33,12 @@ function NewProjectPathInstance(NewDirName, ...PathOrigin) {
         }
     });
 }
-
+/**
+ * Removes a folder from the users project heiarchy
+ * @param {string} DirToRemove 
+ * @param  {...string} PathOrigin 
+ * @returns {void}
+ */
 function RemoveFolderPath(DirToRemove, ...PathOrigin) {
     if (!DirToRemove || !PathOrigin || !fs) return;
     if (typeof DirToRemove !== "string" || typeof PathOrigin !== "string") return;
@@ -50,4 +54,5 @@ module.exports = {
     combinePaths: combinePaths,
     // Project File Manager Functions
     CreateNewFolderInstance: NewProjectPathInstance,
+    DeleteFolderInstance: RemoveFolderPath
 };
