@@ -1,6 +1,7 @@
 /**
  * @typedef {object} GameObjectInstance
- * @property {InstanceType} 
+ * @property {InstanceType<RectangleInstance>}
+ * @property 
  */
 
 /**
